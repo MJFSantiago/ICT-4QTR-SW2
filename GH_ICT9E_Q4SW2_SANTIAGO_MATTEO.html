@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <img src="https://storage.googleapis.com/oa_disk001/obgreenhills/65/employee_files/552/profile_pictures/1660383954-2131.jpg" height="500" width="300" alt="Moving Image" style="position: absolute; top: 50%; right: 0; transform: translate(0, -50%);">
+  <div>
+    <input type="number" id="xValue" placeholder="Enter value for x">
+    <input type="number" id="yValue" placeholder="Enter value for y">
+    <br>
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+    <button value="C" onclick="clearResult()">C</button>
+    <br>
+    <input type="text" id="result" readonly>
+  </div>
+
+  <script>
+    function calculate(operator) {
+      var x = parseFloat(document.getElementById('xValue').value);
+      var y = parseFloat(document.getElementById('yValue').value);
+
+      if (isNaN(x) || isNaN(y)) {
+        document.getElementById('result').value = 'Invalid input';
+        return;
+      }
+
+      switch (operator) {
+        case '+':
+          document.getElementById('result').value = x + y;
+          break;
+        case '-':
+          document.getElementById('result').value = x - y;
+          break;
+        case '*':
+          document.getElementById('result').value = x * y;
+          break;
+        case '/':
+          if (y === 0) {
+            document.getElementById('result').value = 'Division by zero';
+          } else {
+            document.getElementById('result').value = x / y;
+          }
+          break;
+        default:
+          document.getElementById('result').value = 'Invalid operator';
+      }
+    }
+  </script>
+
+  <style>
+
+ button {
+  height: 100;
+  width: 50;
+  color: yellow;
+ }
+
+body {
+  background-color: darkblue;
+}
+
+
+  </style>
+</body>
+</html>
